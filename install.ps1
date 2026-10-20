@@ -1,42 +1,85 @@
-# Universal AI Skill Framework (UASF) — Windows PowerShell Installer
+# Universal AI Skill Framework (UASF) Installer (Windows PowerShell)
+param (
+    [string]$Destination = "."
+)
+
 $ErrorActionPreference = "Stop"
 
-Write-Host "=== Universal AI Skill Framework (UASF) Installer ===" -ForegroundColor Cyan
+Write-Host "==> Installing Universal AI Skill Framework (UASF) to: $Destination" -ForegroundColor Cyan
 
-# Check Python
-$pythonCmd = Get-Command python -ErrorAction SilentlyContinue
-if (-not $pythonCmd) {
-    Write-Error "Python 3 is required but not found in PATH."
-    exit 1
+$ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+if (-not $ScriptDir) {
+    $ScriptDir = "."
 }
 
-$pyVer = & python --version
-Write-Host "[*] Detected: $pyVer" -ForegroundColor Gray
+# Required directory hierarchy
+$dirs = @(
+    "$Destination\.agent\skills",
+    "$Destination\.agent\rules",
+    "$Destination\.claude\skills",
+    "$Destination\.claude\commands",
+    "$Destination\.omp\skills",
+    "$Destination\.omp\commands",
+    "$Destination\.cursor\rules",
+    "$Destination\.aider",
+    "$Destination\.github",
+    "$Destination\skills"
+)
 
-# Install package locally
-Write-Host "[*] Installing UASF package via pip..." -ForegroundColor Yellow
-& python -m pip install --upgrade --user .
-
-# Ensure Python Scripts directory is in user PATH
-$userScripts = Join-Path ([Environment]::GetFolderPath("ApplicationData")) "Python\Python311\Scripts"
-if (Test-Path $userScripts) {
-    $currentEnvPath = [Environment]::GetEnvironmentVariable("PATH", "User")
-    if ($currentEnvPath -notmatch [regex]::Escape($userScripts)) {
-        Write-Host "[*] Adding $userScripts to User PATH..." -ForegroundColor Cyan
-        [Environment]::SetEnvironmentVariable("PATH", "$currentEnvPath;$userScripts", "User")
-    }
-    if ($env:PATH -notmatch [regex]::Escape($userScripts)) {
-        $env:PATH = "$env:PATH;$userScripts"
+foreach ($d in $dirs) {
+    if (-not (Test-Path $d)) {
+        New-Item -ItemType Directory -Path $d -Force | Out-Null
     }
 }
 
-# Verify
-$uasfCmd = Get-Command uasf -ErrorAction SilentlyContinue
-if ($uasfCmd) {
-    Write-Host "[+] UASF installed successfully and executable from terminal!" -ForegroundColor Green
-    & uasf modules
-} else {
-    Write-Host "[*] UASF installed into Python Scripts folder." -ForegroundColor Yellow
-    Write-Host "[*] Testing execution via module runner:" -ForegroundColor Gray
-    & python -m uasf modules
+# Root rule & guideline files
+$rootFiles = @(
+    "base-rules.md", "AGENTS.md", "CLAUDE.md", "PI.md",
+    "CODEX.md", "GEMINI.md", ".cursorrules", ".windsurfrules",
+    ".aider.conf.yml"
+)
+
+foreach ($f in $rootFiles) {
+    if (Test-Path "$ScriptDir\$f") {
+        Copy-Item "$ScriptDir\$f" -Destination "$Destination\" -Force
+    }
 }
+
+# Copy skills to all target directories
+$skillDirs = @(
+    "$Destination\skills",
+    "$Destination\.agent\skills",
+    "$Destination\.claude\skills",
+    "$Destination\.omp\skills"
+)
+
+foreach ($target in $skillDirs) {
+    Copy-Item "$ScriptDir\skills\*" -Destination $target -Recurse -Force
+}
+
+# Copy agent-specific rules and commands
+if (Test-Path "$ScriptDir\.agent\rules\base-rules.md") {
+    Copy-Item "$ScriptDir\.agent\rules\base-rules.md" -Destination "$Destination\.agent\rules\" -Force
+}
+
+if (Test-Path "$ScriptDir\.claude\commands") {
+    Copy-Item "$ScriptDir\.claude\commands\*" -Destination "$Destination\.claude\commands\" -Recurse -Force
+}
+
+if (Test-Path "$ScriptDir\.omp\commands") {
+    Copy-Item "$ScriptDir\.omp\commands\*" -Destination "$Destination\.omp\commands\" -Recurse -Force
+}
+
+if (Test-Path "$ScriptDir\.cursor\rules\uasf.mdc") {
+    Copy-Item "$ScriptDir\.cursor\rules\uasf.mdc" -Destination "$Destination\.cursor\rules\" -Force
+}
+
+if (Test-Path "$ScriptDir\.aider\CONVENTIONS.md") {
+    Copy-Item "$ScriptDir\.aider\CONVENTIONS.md" -Destination "$Destination\.aider\" -Force
+}
+
+if (Test-Path "$ScriptDir\.github\copilot-instructions.md") {
+    Copy-Item "$ScriptDir\.github\copilot-instructions.md" -Destination "$Destination\.github\" -Force
+}
+
+Write-Host "==> Universal AI Skill Framework (UASF) installed successfully!" -ForegroundColor Green

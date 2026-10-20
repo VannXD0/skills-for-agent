@@ -1,0 +1,62 @@
+{
+  "name": "uasf",
+  "version": "1.0.0",
+  "description": "Universal AI Skill Framework (UASF) — Standardized Multi-Agent Protocols & Skills for Antigravity, Claude Code, Cursor, Codex, Windsurf, Oh My Pi, Gemini CLI, Aider, and Copilot",
+  "main": "test/validate.js",
+  "bin": {
+    "uasf": "./bin/uasf.js"
+  },
+  "preferGlobal": true,
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "files": [
+    "bin",
+    "skills",
+    "base-rules.md",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "CODEX.md",
+    "GEMINI.md",
+    "PI.md",
+    ".cursorrules",
+    ".windsurfrules",
+    ".aider.conf.yml",
+    ".aider",
+    ".github",
+    ".agent",
+    ".claude",
+    ".omp",
+    ".cursor",
+    "test"
+  ],
+  "scripts": {
+    "test": "node test/validate.js && node test/simulate-agent.js"
+  },
+  "keywords": [
+    "agent-skills",
+    "uasf",
+    "ai-agent",
+    "multi-agent",
+    "antigravity",
+    "claude-code",
+    "cursor",
+    "windsurf",
+    "codex",
+    "gemini",
+    "aider",
+    "copilot",
+    "anti-slop",
+    "apk-patcher"
+  ],
+  "author": "VannXD0 <revan.23@outlook.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VannXD0/uasf.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VannXD0/uasf/issues"
+  },
+  "homepage": "https://github.com/VannXD0/uasf#readme"
+}

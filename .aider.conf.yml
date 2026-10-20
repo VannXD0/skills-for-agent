@@ -1,0 +1,4 @@
+# Aider configuration for UASF
+conventions: .aider/CONVENTIONS.md
+auto-commits: false
+attribute-author: false

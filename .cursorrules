@@ -1,0 +1,6 @@
+# UASF Cursor Project Rules
+- Follow instruction hierarchy: Operator Directive > Safety > UASF Core Invariants > External Skills.
+- Anti-Slop: Strictly eliminate boilerplate pleasantries ("Certainly!", "Here is...").
+- UI/UX Design: Enforce deliberate font scale (JetBrains Mono/Inter), slate high-contrast palette, asymmetric layout. Strictly ban generic AI purple gradients.
+- APK Engineering: Modify Smali logic and Frida hooks only. res/layout and res/values must remain 100% byte-for-byte identical.
+- Planning Gate: For multi-step tasks, outline a concise plan in plan.md and await user confirmation.

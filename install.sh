@@ -1,38 +1,47 @@
 #!/usr/bin/env bash
-# Universal AI Skill Framework (UASF) — Linux / macOS Terminal Installer
+# Universal AI Skill Framework (UASF) Installer (Linux / macOS)
 set -e
 
-echo "=== Universal AI Skill Framework (UASF) Installer ==="
+DEST="${1:-.}"
+echo "==> Installing Universal AI Skill Framework (UASF) to: $DEST"
 
-# Check Python 3
-if ! command -v python3 &>/dev/null; then
-    echo "[!] Error: python3 is required but not installed." >&2
-    exit 1
-fi
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-echo "[*] Detected Python: $(python3 --version)"
+# Required directory hierarchy
+mkdir -p "$DEST/.agent/skills" \
+         "$DEST/.agent/rules" \
+         "$DEST/.claude/skills" \
+         "$DEST/.claude/commands" \
+         "$DEST/.omp/skills" \
+         "$DEST/.omp/commands" \
+         "$DEST/.cursor/rules" \
+         "$DEST/.aider" \
+         "$DEST/.github" \
+         "$DEST/skills"
 
-# Check pip
-if ! command -v pip3 &>/dev/null && ! command -v pip &>/dev/null; then
-    echo "[!] Error: pip is required but not installed." >&2
-    exit 1
-fi
+# Root rule & guideline files
+root_files=(
+  "base-rules.md" "AGENTS.md" "CLAUDE.md" "PI.md"
+  "CODEX.md" "GEMINI.md" ".cursorrules" ".windsurfrules"
+  ".aider.conf.yml"
+)
 
-PIP_CMD="pip3"
-if ! command -v pip3 &>/dev/null; then
-    PIP_CMD="pip"
-fi
+for f in "${root_files[@]}"; do
+  [ -f "$SCRIPT_DIR/$f" ] && cp "$SCRIPT_DIR/$f" "$DEST/"
+done
 
-# Install in user directory or virtual environment
-echo "[*] Installing UASF package..."
-$PIP_CMD install --upgrade --user .
+# Copy skills
+cp -r "$SCRIPT_DIR/skills/"* "$DEST/skills/" 2>/dev/null || true
+cp -r "$SCRIPT_DIR/skills/"* "$DEST/.agent/skills/" 2>/dev/null || true
+cp -r "$SCRIPT_DIR/skills/"* "$DEST/.claude/skills/" 2>/dev/null || true
+cp -r "$SCRIPT_DIR/skills/"* "$DEST/.omp/skills/" 2>/dev/null || true
 
-# Verify installation
-if command -v uasf &>/dev/null; then
-    echo "[+] UASF installed successfully!"
-    uasf modules
-else
-    echo "[*] UASF installed into user site-packages."
-    echo "[*] Ensure ~/.local/bin is in your PATH to run 'uasf' directly."
-    python3 -m uasf modules
-fi
+# Copy agent-specific rules and commands
+[ -f "$SCRIPT_DIR/.agent/rules/base-rules.md" ] && cp "$SCRIPT_DIR/.agent/rules/base-rules.md" "$DEST/.agent/rules/"
+[ -d "$SCRIPT_DIR/.claude/commands" ] && cp -r "$SCRIPT_DIR/.claude/commands/"* "$DEST/.claude/commands/" 2>/dev/null || true
+[ -d "$SCRIPT_DIR/.omp/commands" ] && cp -r "$SCRIPT_DIR/.omp/commands/"* "$DEST/.omp/commands/" 2>/dev/null || true
+[ -f "$SCRIPT_DIR/.cursor/rules/uasf.mdc" ] && cp "$SCRIPT_DIR/.cursor/rules/uasf.mdc" "$DEST/.cursor/rules/"
+[ -f "$SCRIPT_DIR/.aider/CONVENTIONS.md" ] && cp "$SCRIPT_DIR/.aider/CONVENTIONS.md" "$DEST/.aider/"
+[ -f "$SCRIPT_DIR/.github/copilot-instructions.md" ] && cp "$SCRIPT_DIR/.github/copilot-instructions.md" "$DEST/.github/"
+
+echo "==> Universal AI Skill Framework (UASF) installed successfully!"

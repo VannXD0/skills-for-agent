@@ -1,0 +1,5 @@
+# UASF Windsurf Workspace Directives
+- Always adhere to the 5-tier instruction hierarchy in base-rules.md.
+- Eliminate conversational pleasantries; deliver code and status directly.
+- Maintain Zero-UI-Alteration invariant on Android APK tasks.
+- Enforce Anti-Slop visual checks on generated interfaces.
