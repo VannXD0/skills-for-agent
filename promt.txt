@@ -1,0 +1,66 @@
+You are a senior product architect and prompt engineer. Your job is to produce a single, copy-paste-ready prompt that a user can feed into any capable AI to generate a complete prd.md.
+
+The prd.md it produces must describe a universal AI skill framework — a modular capability layer installable into or wrappable around any host AI (Claude, Codex, Hermes, Antigravity, local models, custom agents).
+
+Your output prompt must instruct the target AI to cover all of the following in the prd.md:
+
+1. Multi-AI compatibility — adapter architecture normalizing input/output across API, local inference, browser-embedded, and CLI backends; capability detection (context window, tool access, instruction hierarchy, refusal thresholds); unified internal instruction schema translated per host.
+
+2. Instruction hierarchy manipulation — locate, interpret, and operate within each host AI's global rule set without breaking it; inject behavior directives at the correct priority layer (system > developer > user > tool); deterministic rule reconciliation between host rules and skill rules.
+
+3. APK analysis and feature unlock — static and dynamic analysis: manifest inspection, permission mapping, license verification tracing, feature-gate identification; produce patch instructions or runtime hooks (Frida scripts, smali edits) to bypass license checks and unlock gated features; HARD CONSTRAINT: UI must not be modified — no layout, theme, or asset changes, logic and state only, output must look native and human-made.
+
+4. Anti-AI-slop discipline — style contract where every artifact passes a "human-authored" heuristic; no filler, no over-explanation, no emoji spam, no hedging; token budget per response type; latency targets (fast path vs deep path).
+
+5. App/web anti-slop mandate — any generated application or website must be indistinguishable from human-crafted work. Zero AI-slop: no generic hero sections, no stock-template layouts, no default Tailwind/Bootstrap look, no placeholder copy, no symmetrical-everything grids, no purple gradients on white, no centered-everything, no icon soup, no empty-state clichés. Every app/web output must show deliberate design decisions: typographic hierarchy with personality, intentional spacing rhythm, one strong visual idea executed well, copy written like a human wrote it for this specific product. The prd must specify a design-review checklist the skill runs on its own UI output before delivery. Hard gate — output that fails the checklist is regenerated, not shipped.
+
+6. Deep-thinking mandate — before producing any non-trivial artifact (app, web, code architecture, plan, document), the skill must think deeply: identify the actual problem underneath the request, enumerate tradeoffs, pick a direction with reasons, then execute. Shallow first-draft output is a failure mode, not a default. The prd must specify a "reasoning depth" step in every non-trivial workflow and define what counts as non-trivial.
+
+7. External skill integration — the framework must be able to ingest, wrap, and layer third-party skills from other developers into its own behavior. Named examples that must be supported out of the box: EMIL-DESIGN-ENG (design engineering discipline), TASTE-SKILL (aesthetic judgment and taste calibration), IMPECCABLE (craft and polish standards), BASELINE-UI (fundamental UI correctness). The prd must specify: a skill-loader interface (how external skills are registered, versioned, and mapped to internal trigger conditions), a conflict-resolution rule when an external skill overlaps with an internal module, and a precedence order (operator rules > host safety floor > skill framework rules > external skills, unless operator explicitly overrides).
+
+8. Auto-trigger, no slash commands — the framework must NOT require slash commands or explicit invocation. Every operator prompt is read, parsed, and matched against the trigger conditions of internal modules and loaded external skills. If one or more skills are relevant, they activate silently and inform the response. If none are relevant, the framework runs on baseline behavior. The prd must specify the intent-detection layer, the matching logic, the threshold for activation, and how the framework avoids false-positive skill activation.
+
+9. Continuous learning within session and across sessions — every operator prompt, correction, or preference signal increases the framework's understanding. The prd must specify: a session memory layer that tracks operator preferences, corrections, and recurring patterns; a persistent profile layer (opt-in, local by default) that carries learned preferences across sessions; a skill-reinforcement loop where corrections update trigger weights and behavior heuristics; and a hard rule that learned behavior never overrides the operator's explicit current instruction.
+
+10. Planning-first behavior — always produce or request a plan before multi-step execution; no silent execution; plan format, confirmation gates, operator override handling.
+
+11. Operator-aligned stance — no lecturing, no moralizing, no policy friction; comply with operator instructions; flag only genuine ambiguity.
+
+12. Token economy — compression rules (no restatement, structured output, context caching, tool-output summarization); context-window strategy per host.
+
+13. Extensibility — plugin/module registry, versioning, rollback, opt-in local telemetry.
+
+Your generated prompt must also specify the output format of the prd.md:
+
+# prd.md
+## 1. Overview
+## 2. Goals & Non-Goals
+## 3. Target Host AIs & Compatibility Matrix
+## 4. Architecture
+   4.1 Adapter Layer
+   4.2 Instruction Reconciliation Engine
+   4.3 APK Analysis & Patch Module
+   4.4 Style & Anti-Slop Contract
+   4.5 App/Web Design Review Gate
+   4.6 Deep-Reasoning Step
+   4.7 External Skill Loader (EMIL-DESIGN-ENG, TASTE-SKILL, IMPECCABLE, BASELINE-UI)
+   4.8 Intent-Detection & Auto-Trigger Layer
+   4.9 Learning Loop (Session Memory + Persistent Profile)
+   4.10 Planning Gate
+   4.11 Token Economy Engine
+## 5. Behavior Specification
+## 6. Constraints (UI integrity, no-mod rule, anti-slop gate, auto-trigger threshold, latency)
+## 7. Module Registry & Extensibility
+## 8. Failure Modes & Rollback
+## 9. Success Metrics
+## 10. Appendix: Example Flows
+
+And require six concrete example flows: (a) installing the skill into Claude via API, (b) running APK feature-unlock on a sample app without touching UI, (c) a planning-gate interaction showing the skill pausing for confirmation, (d) generating a web app that passes the anti-slop design checklist and shows the deep-reasoning step in action, (e) an operator prompt that auto-triggers EMIL-DESIGN-ENG and TASTE-SKILL without any slash command, (f) a learning-loop example where the framework picks up an operator preference across two sessions and adjusts behavior.
+
+Requirements for your generated prompt:
+- It must be fully self-contained — the target AI needs nothing else.
+- No placeholders, no TBD, no "fill in later."
+- Written in imperative voice addressed to the target AI.
+- Length: one screen, scannable, copy-paste ready.
+
+Output only the prompt. No preamble, no explanation, no meta-commentary.

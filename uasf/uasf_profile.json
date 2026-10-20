@@ -1,0 +1,28 @@
+{
+  "uasf_profile_version": "1.0.0",
+  "operator_id": "authorized_maker",
+  "coding_style": {
+    "python": {
+      "naming": "snake_case",
+      "type_hints": true,
+      "docstring_format": "google"
+    },
+    "typescript": {
+      "strict": true,
+      "semicolons": true,
+      "style": "functional"
+    }
+  },
+  "design_preferences": {
+    "color_palette": "high_contrast_slate",
+    "typography": "jetbrains_mono",
+    "theme": "dark_midnight"
+  },
+  "learned_rules": [
+    {
+      "category": "naming",
+      "rule": "Always use snake_case for Python functions with complete typing definitions.",
+      "source_directive": "Stop using camelCase for Python functions. I always use snake_case and strict type annotations."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# APK and Binary artifacts
+*.apk
+*.idsig
+*.keystore
+*.dex
+
+# Working and decompiled directories
+diff_check/
+orig_crack_out/
+test_apk_out/
+test_dex/
+
+# OS and Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

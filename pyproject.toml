@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "uasf"
+version = "1.0.0"
+description = "Universal AI Skill Framework (UASF) — Multi-Host AI Run-time Layer"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [
+    { name = "VannXD0", email = "revan.23@outlook.com" }
+]
+keywords = ["ai", "agents", "skills", "claude", "openai", "antigravity", "reverse-engineering", "anti-slop"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Build Tools",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent"
+]
+dependencies = []
+
+[project.scripts]
+uasf = "uasf.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["uasf*"]
+
+[tool.setuptools.package-data]
+uasf = ["*.json", "*.md"]

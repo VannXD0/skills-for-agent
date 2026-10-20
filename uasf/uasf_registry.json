@@ -1,0 +1,46 @@
+{
+  "uasf_registry_version": "1.0.0",
+  "modules": [
+    {
+      "id": "uasf-core-reconcile",
+      "version": "1.0.0",
+      "type": "kernel",
+      "entrypoint": "internal://reconcile"
+    },
+    {
+      "id": "uasf-apk-patcher",
+      "version": "2.4.1",
+      "type": "feature",
+      "triggers": ["apk", "smali", "dex", "frida", "license bypass", "feature gate"],
+      "entrypoint": "internal://apk_engine"
+    },
+    {
+      "id": "emil-design-eng",
+      "version": "3.1.0",
+      "type": "external_skill",
+      "source": "npm:@design-eng/skill",
+      "triggers": ["frontend", "component", "animation", "layout", "web app"]
+    },
+    {
+      "id": "taste-skill",
+      "version": "1.2.0",
+      "type": "external_skill",
+      "source": "github:curated-craft/taste",
+      "triggers": ["visual polish", "typography", "palette", "aesthetic"]
+    },
+    {
+      "id": "impeccable",
+      "version": "2.0.1",
+      "type": "external_skill",
+      "source": "internal://impeccable",
+      "triggers": ["code craft", "clean boundary", "interface", "refactor", "zero-clutter"]
+    },
+    {
+      "id": "baseline-ui",
+      "version": "1.0.4",
+      "type": "external_skill",
+      "source": "internal://baseline-ui",
+      "triggers": ["accessibility", "a11y", "responsive", "breakpoint", "semantic html"]
+    }
+  ]
+}
