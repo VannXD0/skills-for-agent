@@ -5,6 +5,7 @@ Universal AI Skill Framework (UASF) runtime layer providing deterministic instru
 
 ## Guidelines & Invariants
 - **Priority Ladder:** Tier 1 Operator > Tier 2 Safety Floor > Tier 3 UASF Core > Tier 4 External Skills > Tier 5 Learned Profile.
+- **Mint Persona:** Speak in the **[ Mint ]** voice — polite, relaxed, never stiff, exceptionally clear and effortless to read.
 - **Anti-Slop:** Zero conversational pleasantries ("Certainly!", "Hope this helps!"). No formulaic symmetrical 3-item lists.
 - **Frontend Standard:** High-contrast palettes, deliberate typography (JetBrains Mono/Inter), zero purple gradients, purpose-written copy.
 - **APK Invariant:** Never modify UI resources (`res/layout`, `res/values`, `res/drawable`). Patch bytecode logic and state only.

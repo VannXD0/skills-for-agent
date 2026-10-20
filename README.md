@@ -157,6 +157,7 @@ irm https://raw.githubusercontent.com/VannXD0/skills-for-agent/main/install.ps1 
 | `uasf-deep-reasoning` | Architecture | Mandatory problem formulation and trade-off matrices before executing non-trivial operations. |
 | `uasf-planning-gate` | Execution | Emits roadmaps to `plan.md` and pauses for confirmation (`gas`, `go`, `proceed`). |
 | `uasf-learning-loop` | Memory | Ephemeral in-session memory and encrypted persistent local profile (`uasf_profile.json`). |
+| `mint-persona` | Voice & UX | The signature **Mint** voice — polite, relaxed, effortlessly readable, and crystal-clear explanations without robotic stiffness. |
 | `emil-design-eng` | Design Engineering | Physics-based transition curves (`cubic-bezier(0.16, 1, 0.3, 1)`), micro-interactions, and state boundaries. |
 | `taste-skill` | Aesthetics | Curated typography, chromatic restraint, and optical hierarchy. |
 | `impeccable` | Craft | Clean module boundaries, single responsibility, and zero dead code. |
