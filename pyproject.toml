@@ -3,9 +3,9 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "uasf"
+name = "skills-for-agent"
 version = "1.0.0"
-description = "Universal AI Skill Framework (UASF) — Multi-Host AI Run-time Layer"
+description = "Skills For Agent (UASF) — Standardized Multi-Agent Protocols & Skills"
 readme = "README.md"
 requires-python = ">=3.8"
 license = { text = "MIT" }

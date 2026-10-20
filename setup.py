@@ -4,9 +4,9 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="uasf",
+    name="skills-for-agent",
     version="1.0.0",
-    description="Universal AI Skill Framework (UASF) — Multi-Host AI Run-time Layer",
+    description="Skills For Agent (UASF) — Standardized Multi-Agent Protocols & Skills",
     author="VannXD0",
     author_email="revan.23@outlook.com",
     packages=find_packages(),

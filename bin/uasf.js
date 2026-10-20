@@ -170,7 +170,7 @@ function copyDirSafe(srcDir, destDir, dryRun = false) {
 
 function printBanner() {
   console.log(`\n${c.bold}${c.cyan}======================================================${c.reset}`);
-  console.log(`${c.bold}${c.cyan}  Universal AI Skill Framework (UASF) v${pkg.version}${c.reset}`);
+  console.log(`${c.bold}${c.cyan}  Skills For Agent (UASF) v${pkg.version}${c.reset}`);
   console.log(`${c.dim}  Multi-Agent Runtime Protocols, Anti-Slop & Zero-UI APK${c.reset}`);
   console.log(`${c.bold}${c.cyan}======================================================${c.reset}\n`);
 }
@@ -178,7 +178,7 @@ function printBanner() {
 function printHelp() {
   printBanner();
   console.log(`${c.bold}Usage:${c.reset}`);
-  console.log(`  npx github:VannXD0/uasf [command] [targetDir] [options]\n`);
+  console.log(`  npx github:VannXD0/skills-for-agent [command] [targetDir] [options]\n`);
   console.log(`${c.bold}Commands:${c.reset}`);
   console.log(`  ${c.green}install${c.reset} [dir]     Install UASF skills & platform rules into target project (default: .)`);
   console.log(`  ${c.green}doctor${c.reset} [dir]      Audit target project configuration and verify skill health`);

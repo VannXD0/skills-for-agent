@@ -53,10 +53,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VannXD0/uasf.git"
+    "url": "git+https://github.com/VannXD0/skills-for-agent.git"
   },
   "bugs": {
-    "url": "https://github.com/VannXD0/uasf/issues"
+    "url": "https://github.com/VannXD0/skills-for-agent/issues"
   },
-  "homepage": "https://github.com/VannXD0/uasf#readme"
+  "homepage": "https://github.com/VannXD0/skills-for-agent#readme"
 }

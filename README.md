@@ -1,6 +1,6 @@
 <div align="center">
 
-# Universal AI Skill Framework (UASF)
+# Skills For Agent (UASF)
 
 **Standardized Multi-Agent Protocols & Skills for Autonomous AI Coding Agents**
 
@@ -13,17 +13,17 @@
 
 ---
 
-[Quickstart](#quickstart) • [Why UASF?](#why-universal-ai-skill-framework) • [Architecture](#architecture) • [Core Skills](#core-skills) • [Supported Agents](#supported-agents) • [Verification](#verification--testing)
+[Quickstart](#quickstart) • [Why Skills For Agent?](#why-skills-for-agent) • [Architecture](#architecture) • [Core Skills](#core-skills) • [Supported Agents](#supported-agents) • [Verification](#verification--testing)
 
 </div>
 
 ---
 
-## Why Universal AI Skill Framework?
+## Why Skills For Agent?
 
 Autonomous coding agents (Claude Code, Cursor, Antigravity, OpenAI Codex, Windsurf) fail predictably due to four structural pitfalls:
 
-| Failure Mode | Without UASF | With UASF Skills |
+| Failure Mode | Without Skills | With Skills For Agent |
 | :--- | :--- | :--- |
 | **Instruction Collisions** | Ambiguous rule precedence; plugins hijack host rules and user directives randomly. | **Deterministic Hierarchy**: Strict 5-tier ladder (`Operator > Safety Floor > UASF Core > External Skills > Profile`). |
 | **Destructive Reverse Engineering** | Overhauls XML themes and layouts when unlocking features, destroying app authenticity. | **Zero-UI Invariant**: Surgical `.smali` and Frida patches with byte-for-byte identical UI resources. |
@@ -35,7 +35,7 @@ Autonomous coding agents (Claude Code, Cursor, Antigravity, OpenAI Codex, Windsu
 
 ## Quickstart
 
-Install UASF into any existing project in 3 seconds:
+Install Skills For Agent into any existing project in 3 seconds:
 
 ### Via NPX (Direct from GitHub)
 
@@ -43,10 +43,10 @@ Run instantly without cloning or local installation:
 
 ```bash
 # Run directly from GitHub repository
-npx github:VannXD0/uasf
+npx github:VannXD0/skills-for-agent
 
 # Or install into current project
-npx github:VannXD0/uasf install
+npx github:VannXD0/skills-for-agent install
 ```
 
 ### CLI Commands & Advanced Flags
@@ -55,41 +55,41 @@ The zero-dependency CLI auto-detects active agents in the project:
 
 ```bash
 # Universal install into current project (auto-detects active agents)
-npx github:VannXD0/uasf install
+npx github:VannXD0/skills-for-agent install
 
 # Install into a specific directory
-npx github:VannXD0/uasf install /path/to/project
+npx github:VannXD0/skills-for-agent install /path/to/project
 
 # Filter installation to a specific AI agent:
 # Options: antigravity, claude, cursor, codex, windsurf, omp, gemini, aider, copilot
-npx github:VannXD0/uasf install ./my-project --client=antigravity
+npx github:VannXD0/skills-for-agent install ./my-project --client=antigravity
 
 # Preview file operations without modifying disk
-npx github:VannXD0/uasf install ./my-project --dry-run
+npx github:VannXD0/skills-for-agent install ./my-project --dry-run
 
 # Audit project configuration and verify skill health
-npx github:VannXD0/uasf doctor ./my-project
+npx github:VannXD0/skills-for-agent doctor ./my-project
 
 # Run multi-agent contract verification test suite
-npx github:VannXD0/uasf verify
+npx github:VannXD0/skills-for-agent verify
 
 # List all core skills and supported AI agent platforms
-npx github:VannXD0/uasf list
+npx github:VannXD0/skills-for-agent list
 
-# Safely remove UASF skills without touching user code
-npx github:VannXD0/uasf uninstall ./my-project
+# Safely remove skills without touching user code
+npx github:VannXD0/skills-for-agent uninstall ./my-project
 ```
 
 ### One-Line Shell Installers
 
 #### Linux / macOS:
 ```bash
-curl -fsSL https://raw.githubusercontent.com/VannXD0/uasf/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/VannXD0/skills-for-agent/main/install.sh | bash
 ```
 
 #### Windows (PowerShell):
 ```powershell
-irm https://raw.githubusercontent.com/VannXD0/uasf/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/VannXD0/skills-for-agent/main/install.ps1 | iex
 ```
 
 ---
